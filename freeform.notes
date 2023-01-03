@@ -1,0 +1,203 @@
+-= var =-
+- var can be seen everywhere
+- var can be declared again with the same name 
+- var is always recognised in the start of the function
+
+
+
+
+
+== object destructuring == 
+[js]
+    const hero = {
+        elementId: “hero”,
+        name: "Wizard",
+        avatar: "images/wizard.png",
+        health: 60,
+        diceRoll: 3,
+        diceCount: 3
+    }
+
+    function renderCharacter(data) {
+    const { elementId, name, avatar, health, diceRoll } = data
+    }
+[end]
+
+
+
+
+
+== map == 
+- in-build method to apply something for every item in object/array/string
+[js]
+    const guestList = ['Tom', 'Mary', 'Clare', 'John', 'Liz']
+
+    const guestsHtml = guestList.map( function (guest) {
+        return `<div class=“box">${guest}</div>`
+    }) 
+[end]
+
+
+
+
+
+== sort == 
+- you can use sort with additional function in the actual method
+[js]
+    const groceries = [
+        {
+            product: 'meat',
+            price: 2.99
+        },
+        {
+            product: 'fish',
+            price: 3.99
+        }
+    ]
+
+    function sortGroceries() {
+        const sorted - groceries.sort((a, b) => (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0))
+        sorted.forEach(item => {
+            console.log(`${item.price}, ${item.product}`)
+        })
+    }
+[end]
+
+
+
+
+
+== nested ternary ==
+[js]
+    function ternary() {
+        return condition1 ? value1 
+            : condition2 ? value2
+            : condition3 ? value3
+            : value4;
+    }
+[end]
+
+
+
+
+
+== includes ==
+[js]
+    let allWords = ['extremely literally actually bla bla bla bla bla']
+    let neededWords = ['extremely', 'literally', 'actually']
+
+    let betterWords = allWords.filter(word => {
+        return !neededWords.includes(word)
+    })
+    console.log(betterWords) // ['extremely', 'literally', 'actually']
+[end]
+
+
+
+
+
+== slice ==
+[js]
+    const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+    console.log(animals.slice(2)) // expected output: Array ["camel", "duck", "elephant"]
+    console.log(animals.slice(2, 4)) // expected output: Array ["camel", "duck"]
+    console.log(animals.slice(1, 5)) // expected output: Array ["bison", "camel", "duck", "elephant"]
+[end]
+
+
+
+
+
+== reduce ==
+[js]
+    let array = [3, 7, 2, 9, 5]
+    const result = array.reduce((accumulator, currentValue, currentIndex, arr) => {
+        // code
+    }, initialValue)
+
+    // accumulator = will store return value of the function
+    // currentValue = iterate through each array element
+    // currentIndex = index of currentValue
+    // arr = original array
+    // initialValue = set accumulator initial value
+[end]
+
+
+
+
+
+== leetcode root tree basic ==
+
+[js]
+const checkTree = function(root) {
+    return root.val === root.right.val + root.left.val
+}
+[end]
+
+
+
+
+
+== fetch basic ==
+[js]
+fetch('https://dog.ceo/api/breeds/image/random').then(responce => responce.json()).then(data => console.log(data))
+[end]
+
+
+
+*GENERAL*
+- form is used with form TAG
+- str[i] means that you are adding a each symbol from the str string
+- margin-left: auto allows you to centre the element if parent is set to flex
+- if error #is not defined# is popping up, check if #this.# parameter is assigned in the constructor function
+
+
+
+- pass in function in array as a parameter --->
+
+[js]
+    function getNewMonster() {
+        characterData[monsterArray.shift()]
+    }
+[end]
+
+
+
+- pass in two variables in [] brackets --->
+
+[js]
+    function validTime(str) {
+        const [hour, min] = str.split(':')
+        return hour > 24 || min > 59 ? false : true
+    }
+[end]
+
+
+
+- use to fill an empty array --->
+
+[js]
+    const poisonMushrooms = new Array(999).fill('mushroom').map(mushroom => {
+        return `<div>${mushroom}</div>`
+    }).join('')
+[end]
+
+
+
+- you can do multiple things in function by putting it into the braces (similiar to the usually written function) --->
+
+[js]
+    fetch("https://dog.ceo/api/breeds/image/random")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)                                               //here
+            document.getElementById("image-container").innerHTML = `
+                <img src="${data.message}" />
+            `
+        })
+
+    fetch('https://apis.scrimba.com/bored/api/activity')
+        .then(response => responce.json())
+        .then(data => 
+            console.log(data))
+[end]
